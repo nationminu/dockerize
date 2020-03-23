@@ -1,0 +1,16 @@
+---
+version: '3'
+
+services:
+  wildfly:
+    build: ./
+    ports:
+        - "8080:8080"
+        - "8009:8009"
+        - "8443:8443"
+    environment:
+        TZ: "Asia/Seoul"
+    volumes: 
+        - ${pwd}/module.ext:/usr/share/wildfly/module.ext:rw 
+...
+# docker-compose up --build

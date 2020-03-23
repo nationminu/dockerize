@@ -1,0 +1,15 @@
+---
+version: '3'
+
+services:
+  windup:
+      build: ./ 
+      environment:
+        - TZ= "Asia/Seoul" 
+      volumes:
+        - ./webapp/:/app/src
+        - ./result/:/app/result
+      working_dir: /app
+      command: "windup --input /app/src/simple-sample-app.ear --output /app/result --source weblogic --target eap:7 --packages com.acme"
+...
+# docker-compose up --build
